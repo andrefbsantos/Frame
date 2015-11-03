@@ -1,4 +1,7 @@
-h2. Virtual machines: We use Vagrant with Ansible
+h2. Virtual machines: Vagrant with Ansible
+
+* We use "Vagrant":https://en.wikipedia.org/wiki/Vagrant_(software) to configure virtual development environments. It is used as a wrapper around "VirtualBox":https://www.virtualbox.org/ virtualization software.
+* "Ansible":https://en.wikipedia.org/wiki/Ansible_(software) is a software platform for configuring and managing computers. We use it together with Vagrant for configuration management.
 
 h3. Install VirtualBox
 
