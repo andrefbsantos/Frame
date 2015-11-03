@@ -1,0 +1,13 @@
+---
+- name: Common packages
+  apt:
+    name={{ item }}
+  with_items:
+    - screen
+    - vim
+    - emacs24-nox
+    - nano
+    - htop
+    - xfce4
+    - firefox
+    - unzip

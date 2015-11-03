@@ -1,0 +1,15 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+    document_root: /vagrant
+    apt_file: /etc/apt/sources.list.d/google-chrome.list
+
+  pre_tasks:
+    - name: update apt cache
+      apt: update_cache=yes
+  roles:
+    - base
+    - database
+    - webserver
+    - google_chrome
