@@ -1,3 +1,56 @@
+h2. Project setup
+
+All projects must have a git repository by codebase, continuous integration, automated code review, and use virtual machines for development.
+
+h3. Virtual machines: We use Vagrant with Ansible
+
+h4. Install VirtualBox
+
+pre. https://www.virtualbox.org/wiki/Downloads
+
+pre. https://www.vagrantup.com/downloads.html
+
+h4. Install Vagrant
+
+pre. https://www.vagrantup.com/downloads.html
+
+h4. Install Ansible (mac)
+
+pre. $ brew install ansible
+
+
+h3. Look for configuration examples on the "vagrant_ansible_examples":vagrant_ansible_examples folder
+
+To try the examples, just copy the files from the example you choose to your project base folder and do:
+
+
+* Start the machine (The first time it will take some minutes to load everything)
+
+pre. $ vagrant up
+
+Note: Sometimes (depending of the Vagrantfile configuration, the script might ask you for your host machine password. This only happens if a private network and NFS shared folders are configured on the Vagrantfile.
+This is a good practice for bigger projects because it speeds up the disk access on the shared folders.
+
+If all goes well, you should now be able to access the guest machine services on the localhost port or private IP defined on the "Vagrantfile" 
+To access the machine via ssh you can do:
+
+pre. $ vagrant ssh
+
+Now you can see that the "/vagrant" folder of the machine is in sync with yout base project folder on the host machine. 
+
+
+* Stop the machine
+
+pre. $ vagrant halt
+
+
+* Destroy the machine
+
+pre. $ vagrant destroy
+
+
+
+
 h2. Go Live
 
 *a paragraph about the importance of goint live*
