@@ -15,7 +15,7 @@ h3. Install Ansible (mac)
 pre. $ brew install ansible
 
 
-h2. Look for configuration examples on the "vagrant_ansible_examples":vagrant_ansible_examples folder
+h2. Look for configuration examples on the "vagrant_ansible_examples":/vagrant_ansible_examples folder
 
 To try the examples, just copy the files from the example you choose to your project base folder and do:
 
