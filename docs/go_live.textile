@@ -1,0 +1,17 @@
+h2. Go Live
+
+*a paragraph about the importance of going live*
+
+Denpeding if it is a web project, a mobile project or both, several actions need to be taken into account before going live.
+
+Here is a list of the most relevant ones:
+
+h3. Web applications
+
+For Web applications, the following list is important:
+
+* Setup meta information
+** For search engines consider at least <a href="https://moz.com/learn/seo/meta-description" target="_blank">meta description</a> and <a href="https://moz.com/learn/seo/title-tag" target="_blank">title</a>
+** For social networks consider at least og:title, og:url, og:description and og:image, as seen here <a href="https://developers.facebook.com/docs/sharing/best-practices" target="_blank">here</a>. The result can be tested <a href="https://developers.facebook.com/tools/debug/og/object/" target="_blank">here</a>, and the guidelines for og:image can be seen <a href="https://developers.facebook.com/docs/sharing/best-practices#images" target="_blank">here</a>.
+
+h3. Setup Exception Notification with Redmine
