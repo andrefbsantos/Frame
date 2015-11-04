@@ -1,9 +1,82 @@
-h2. Project setup
+h1(#top). Project setup
 
 All projects must have a git repository by codebase, continuous integration, automated code review, and use virtual machines for development.
 
 # Create the project git repository
-# "Install and configure the virtual machine":docs/vagrant_ansible.textile (Vagrant + Ansible)
+# "Install and configure the virtual machine":#vagrant_ansible (Vagrant + Ansible)
 # Configure continuous integration
 # Configure automated code review
-# "Go live":docs/go_live.textile (WIP)
+# "Go live":#go_live (WIP)
+
+
+
+h2(#vagrant_ansible). Install and configure the virtual machine
+
+* We use "Vagrant":https://en.wikipedia.org/wiki/Vagrant_(software) to configure virtual development environments. It is used as a wrapper around "VirtualBox":https://www.virtualbox.org/ virtualization software.
+* "Ansible":https://en.wikipedia.org/wiki/Ansible_(software) is a software platform for configuring and managing computers. We use it together with Vagrant for configuration management.
+
+h3. Install VirtualBox
+
+pre. https://www.virtualbox.org/wiki/Downloads
+
+pre. https://www.vagrantup.com/downloads.html
+
+h3. Install Vagrant
+
+pre. https://www.vagrantup.com/downloads.html
+
+h3. Install Ansible (mac)
+
+pre. $ brew install ansible
+
+
+h2. Look for configuration examples on the "vagrant_ansible_examples":/vagrant_ansible_examples folder
+
+To try the examples, just copy the files from the example you choose to your project base folder and do:
+
+
+* Start the machine (The first time it will take some minutes to load everything)
+
+pre. $ vagrant up
+
+Note: Sometimes (depending of the Vagrantfile configuration, the script might ask you for your host machine password. This only happens if a private network and NFS shared folders are configured on the Vagrantfile.
+This is a good practice for bigger projects because it speeds up the disk access on the shared folders.
+
+If all goes well, you should now be able to access the guest machine services on the localhost port or private IP defined on the "Vagrantfile"
+To access the machine via ssh you can do:
+
+pre. $ vagrant ssh
+
+Now you can see that the "/vagrant" folder of the machine is in sync with yout base project folder on the host machine.
+
+
+* Stop the machine
+
+pre. $ vagrant halt
+
+
+* Destroy the machine
+
+pre. $ vagrant destroy
+
+p>. "Top":#top
+
+h2(#go_live). Go Live
+
+*a paragraph about the importance of going live*
+
+Denpeding if it is a web project, a mobile project or both, several actions need to be taken into account before going live.
+
+Here is a list of the most relevant ones:
+
+h3. Web applications
+
+For Web applications, the following list is important:
+
+* Setup meta information
+** For search engines consider at least <a href="https://moz.com/learn/seo/meta-description" target="_blank">meta description</a> and <a href="https://moz.com/learn/seo/title-tag" target="_blank">title</a>
+** For social networks consider at least og:title, og:url, og:description and og:image, as seen here <a href="https://developers.facebook.com/docs/sharing/best-practices" target="_blank">here</a>. The result can be tested <a href="https://developers.facebook.com/tools/debug/og/object/" target="_blank">here</a>, and the guidelines for og:image can be seen <a href="https://developers.facebook.com/docs/sharing/best-practices#images" target="_blank">here</a>.
+
+h3. Setup Exception Notification with Redmine
+
+p>. "Top":#top

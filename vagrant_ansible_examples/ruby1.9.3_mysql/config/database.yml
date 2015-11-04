@@ -1,0 +1,40 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: db_development
+  username: root
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db_development
+
+test:
+  <<: *default
+  database: db_test
+
+staging:
+  <<: *default
+  database: db_staging
+
+production:
+  <<: *default
+  database: db_production
+
+damf3admin_development:
+  <<: *default
+  database: damf3administration
+
+damf3admin_test:
+  <<: *default
+  database: damf3administration
+
+damf3admin_staging:
+  <<: *default
+  database: damf3administration
+
+damf3admin_production:
+  <<: *default
+  database: damf3administration

@@ -1,0 +1,19 @@
+---
+- name: install mysql-server
+  apt: name=mysql-server state=present
+- name: install mysql-client
+  apt: name=mysql-client state=present
+
+  # Copy database dump file to remote host and restore it to database 'citiviva_development'
+- copy: src=db_dump.sql dest=/tmp
+- name: Create DB
+  command: bash -lc "bundle exec rake db:create"
+  args:
+    chdir: '{{ document_root }}'
+
+- shell: mysql -u root db_development < /tmp/db_dump.sql
+
+#- name: DB Migrate
+#  command: bash -lc "bundle exec rake db:migrate"
+#  args:
+#    chdir: '{{ document_root }}'

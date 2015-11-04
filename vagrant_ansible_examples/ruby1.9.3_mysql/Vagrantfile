@@ -1,0 +1,23 @@
+Vagrant.configure(2) do |config|
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://atlas.hashicorp.com/search.
+  config.vm.box = "ubuntu/trusty64"
+
+  config.vm.network "forwarded_port", guest: 3000, host: 3001, auto_correct: true
+
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 2048
+    v.cpus = 4
+  end
+
+
+  # config.vm.network :private_network, ip: "10.11.12.13"
+
+  # config.vm.synced_folder ".", "/vagrant", type: "nfs"
+
+  config.vm.provision :ansible do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
+  config.vm.provision :shell, path: "./run.sh", run: "always", privileged: false
+end
