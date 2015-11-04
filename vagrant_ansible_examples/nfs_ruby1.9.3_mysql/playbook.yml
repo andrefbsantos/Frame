@@ -1,0 +1,12 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+    document_root: /your_app_name
+  pre_tasks:
+    - name: update apt cache
+      apt: update_cache=yes
+  roles:
+    - base
+    - database
+    - ruby

@@ -1,0 +1,33 @@
+---
+- name: Requirements for installing gems
+  apt:
+    name={{ item }}
+  with_items:
+    - build-essential
+    - make
+    - git
+    - ruby1.9.3
+    - ruby-dev
+    - rubygems1.9.1
+    - irb1.9.1
+    - ri1.9.1
+    - rdoc1.9.1
+    - libmysqlclient-dev
+    - libssl-dev
+    - libopenssl-ruby1.9.1
+    - redis-server
+    - imagemagick
+    - libsqlite3-dev
+    - nodejs
+
+- name: Install bundler
+  gem: name=bundler user_install=no
+
+- name: Install rails
+  gem: name=rails version=4.1 user_install=no
+
+- name: Install all gems
+  command: 'bundle install'
+  command: bash -lc "bundle install"
+  args:
+    chdir: '{{ document_root }}'

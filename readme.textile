@@ -2,15 +2,36 @@ h1(#top). Project setup
 
 All projects must have a git repository by codebase, continuous integration, automated code review, and use virtual machines for development.
 
-# Create the project git repository
-# "Install and configure the virtual machine":#vagrant_ansible (Vagrant + Ansible)
+# "Create the project git repository":git_repository (Bitbucket)
+# "Setup local git":local_git
+# "Install, configure and test the virtual machine":#vagrant_ansible (Vagrant + Ansible)
 # Configure continuous integration
 # Configure automated code review
 # "Go live":#go_live (WIP)
 
 
+h2(#git_respository). Create the project git repository
 
-h2(#vagrant_ansible). Install and configure the virtual machine
+
+# https://bitbucket.org/imaginarycloud/
+# Repositories -> Create repository
+# Set imaginarycloud as owner
+
+p>. "Top":#top
+
+h2(#local_git). Setup local git
+
+h3. Setup local directory (Create directory for the project, Initialize a git repo and add a remote)
+
+# mkdir path/to/new/project
+# cd path/to/new/project
+# git init
+# git remote add origin git@bitbucket.org:imaginarycloud/*project_name*.git
+# Commit away!
+
+p>. "Top":#top
+
+h2(#vagrant_ansible). Install, configure and test the virtual machine
 
 * We use "Vagrant":https://en.wikipedia.org/wiki/Vagrant_(software) to configure virtual development environments. It is used as a wrapper around "VirtualBox":https://www.virtualbox.org/ virtualization software.
 * "Ansible":https://en.wikipedia.org/wiki/Ansible_(software) is a software platform for configuring and managing computers. We use it together with Vagrant for configuration management.
@@ -32,7 +53,7 @@ pre. $ brew install ansible
 
 h2. Look for configuration examples on the "vagrant_ansible_examples":/vagrant_ansible_examples folder
 
-To try the examples, just copy the files from the example you choose to your project base folder and do:
+To try the examples, just copy the files from the example you choose to your project git base folder and do:
 
 
 * Start the machine (The first time it will take some minutes to load everything)
@@ -58,6 +79,7 @@ pre. $ vagrant halt
 * Destroy the machine
 
 pre. $ vagrant destroy
+
 
 p>. "Top":#top
 

@@ -1,0 +1,62 @@
+---
+- name: requirements for installing gems
+  apt:
+    name={{ item }}
+  with_items:
+    - build-essential
+    - make
+    - git
+    - zlib1g-dev
+    - libyaml-dev
+    - libssl-dev
+    - libgdbm-dev
+    - libreadline-dev
+    - libncurses5-dev
+    - libffi-dev
+    - libmysqlclient-dev
+    - libssl-dev
+    - redis-server
+    - imagemagick
+    - libsqlite3-dev
+    - nodejs
+
+- name: "Download Ruby 2.2.3"
+  get_url: url=https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.3.tar.gz sha256sum=df795f2f99860745a416092a4004b016ccf77e8b82dec956b120f18bdc71edce dest=/root/ruby-2.2.3.tar.gz
+  register: download_ruby
+
+- name: "Unpack Ruby 2.2.3"
+  shell: mkdir -p /root/ruby-2.2.3 && tar xzf /root/ruby-2.2.3.tar.gz --strip 1 -C /root/ruby-2.2.3
+  when: download_ruby|changed
+
+- name: "Configure, make and make install Ruby 2.2.3"
+  shell: cd /root/ruby-2.2.3 && ./configure && make && make install
+  when: download_ruby|changed
+
+- name: "Remove build artifacts"
+  command: rm -rf /root/ruby-2.2.3
+  when: download_ruby|changed
+
+- name: Install bundle
+  gem: name=bundler user_install=no
+
+- name: Install rails
+  gem: name=rails version=4.2 user_install=no
+
+- name: Install all gems
+  command: bash -lc "bundle install"
+  args:
+    chdir: '{{ document_root }}'
+
+- name: Create DB
+  command: bash -lc "rake db:create"
+  args:
+    chdir: '{{ document_root }}'
+
+# Edit this to reflect your project settings
+# - shell: mysql -u root dbname_development < /tmp/database_dump.sql
+# - shell: mysql -u root dbname_test < /tmp/database_dump.sql
+
+- name: DB Migrate
+  command: bash -lc "rake db:migrate"
+  args:
+    chdir: '{{ document_root }}'
