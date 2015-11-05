@@ -43,20 +43,36 @@
   gem: name=rails version=4.2 user_install=no
 
 - name: Install all gems
+  become: yes
+  become_user: vagrant
+  ignore_errors: yes
   command: bash -lc "bundle install"
   args:
     chdir: '{{ document_root }}'
 
 - name: Create DB
+  become: yes
+  become_user: vagrant
+  ignore_errors: yes
   command: bash -lc "rake db:create"
   args:
     chdir: '{{ document_root }}'
 
 # Edit this to reflect your project settings
 # - shell: mysql -u root dbname_development < /tmp/database_dump.sql
+# become: yes
+# become_user: vagrant
+# ignore_errors: yes
+
 # - shell: mysql -u root dbname_test < /tmp/database_dump.sql
+# become: yes
+# become_user: vagrant
+# ignore_errors: yes
 
 - name: DB Migrate
+  become: yes
+  become_user: vagrant
+  ignore_errors: yes
   command: bash -lc "rake db:migrate"
   args:
     chdir: '{{ document_root }}'

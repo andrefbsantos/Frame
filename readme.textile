@@ -2,8 +2,8 @@ h1(#top). Project setup
 
 All projects must have a git repository by codebase, continuous integration, automated code review, and use virtual machines for development.
 
-# "Create the project git repository":git_repository (Bitbucket)
-# "Setup local git":local_git
+# "Create the project git repository":#git_repository (Bitbucket)
+# "Setup local git":#local_git
 # "Install, configure and test the virtual machine":#vagrant_ansible (Vagrant + Ansible)
 # Configure continuous integration
 # Configure automated code review
