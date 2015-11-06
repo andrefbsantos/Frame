@@ -23,9 +23,6 @@
 - name: Install bundler
   gem: name=bundler user_install=no
 
-- name: Install rails
-  gem: name=rails version=4.1 user_install=no
-
 - name: Install all gems
   become: yes
   become_user: vagrant

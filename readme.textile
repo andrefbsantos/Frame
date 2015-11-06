@@ -1,45 +1,128 @@
-
-h1. Time Tracking Procedure
-
-Time reporting is one of the most important activity that every collaborator of Imaginary Cloud must perform. It ensures that all costs are assigned to the correct activities. This is the base of all decision making affecting proposals, on-going projects and even the design of internal procedures.
-
-As Imaginary Intra is the official tool for Project Management on Imaginary Cloud, time must be reported in an issue open for the task at hand. This means that every collaborator *must never start working on a tasks* without having an issue open for it. This includes tasks specific to project, proposals or management (i.e. interviews, coaching, etc).
-
-Some projects require team members to report time on an external tool (e.g. Assembla, Pivotal Tracker, Excel, etc), with specific rules for that project. Nevertheless, the cost is calculated internally through Imaginary Intra. As a result, the team member must also report the time on this tool.
-
-Time spent on an issue includes understanding the issue, meetings clarifying scope, design of the technical solution, coding, testing, etc. 
-
-Try to group project tasks to take chunks of half a day or a full day. At the end of day, 8h should be distributed among the issues worked during the day.
-
-Because projects have different billing cycles, *time should be reported at the end of the working day*.
-
-You must also book time spent on Holidays and Absences, in the same way as in project issues, in the "Holidays and Absences project":/projects/holidays-absences/wiki.
-
-h4. The following tools are proposed to track time during the day:
-
-* Linux
-** "Hamster":http://projecthamster.wordpress.com/
-* Web
-** "Online Stop Watch":http://www.online-stopwatch.com/
-* Mac
-** "On the job":http://stuntsoftware.com/onthejob/
-
-
-
-h1(#top). Project setup
+h1(#top). Imaginary Cloud Projects methodology
 
 All projects must have a git repository by codebase, continuous integration, automated code review, and use virtual machines for development.
 
-# "Create the project git repository":#git_repository (Bitbucket)
-# "Setup local git":#local_git
-# "Install, configure and test the virtual machine":#vagrant_ansible (Vagrant + Ansible)
-# Configure continuous integration
-# Configure automated code review
-# "Go live":#go_live (WIP)
+
+# "How it works":#how_it_works
+## "Who's who":#whos_who
+## "Project lifecycle":#project_lifecycle
+## "Quality assurance":#quality_assurance
+# "Project setup":#project_setup
+## "Create the project git repository":#git_repository (Bitbucket)
+## "Setup local git":#local_git
+## "Install, configure and test the virtual machine":#vagrant_ansible (Vagrant + Ansible)
+## Configure continuous integration
+## Configure automated code review
+## "How do we track time":#track_time
+## "Go live":#go_live (WIP)
+
+h2(#how_it_works). How it works
+
+p>. "Top":#top
+
+h3(#whos_who). Who's who
+
+*Manager* -  Is the person responsible for the management of the project by helping the client to define, monitor and control the budget, scope and schedule of the project. In order to achieve this, the manager will/can act as project manager, account manager and/or product-manager proxy.
+
+*Operative* - An operative member is a someone responsible for the execution of the operational project tasks, like the design or development of a feature. Developers and designers are usually classified as operative members of the project. But some complex projects might also have system administrators or other more specific technical members.
+
+*Specialist* - A specialist is someone that joins the project to provide inputs on a specific domain, but is usually not executing operational work on a regular basis. For example, a person that joins a project workshop to review the architecture to accommodate more users in the platform (i.e. review the architecture to scale the system).
+
+*Admin* - The admin role is assigned to elements that need access to the project to perform administrative tasks, like for example, checking time-logs to issue invoices.
+
+p>. "Top":#top
+
+h3(#project_lifecycle). Project lifecycle
 
 
-h2(#git_respository). Create the project git repository
+Any project has a specific life-cycled and is composed by three stages:
 
+# Setup
+# Planning, Delivery & Monitoring
+# Close
+
+h4. 1. Setup Phase
+
+A project is in the *setup phase* when a proposal is accepted by the client and the project manager is already identified. At this stage, the following tasks need to be executed in order to ensure that everything has been considered.
+
+| *No.* | *Action* | *Responsibility* | *Participants* | *Guidance* |
+| 1. | Setup project on Intra | Manager | - | Redmine Procedures |
+| 2. | Internal email to project team | Manager | - | Email template |
+| 3. | Internal KO meeting | Manager | Project Team | Internal KO meeting template |
+| 3a. | Prepare for KO meeting | Manager | Project Team | KO meeting template |
+| 4. | KO meeting | Manager | Project Team | file(KO meeting minutes template) |
+| 5. | Git setup | Operative | Manager | Git Procedures |
+| 6. | Addition of client to Redmine and info mailout | Manager | - | Document |
+
+All documents which are output from this process must be uploaded to the Files section of the project for reference by the team.
+
+h4. 2. Planning, Delivery & Monitoring Phase (and troubleshooting)
+
+After the project Kick-off meeting, the project enters the *Planning, Delivery & Monitoring Phase*
+
+From a project management perspective, the objective of this phase is to continuously plan the project, monitor the execution against the plan and take the necessary actions to re-plan and put execution back on track.
+
+h5. Iterations
+
+A project is developed in iterations, with the usual duration of two weeks. The duration of an iteration may vary, at it is usually defined at Kick-off by the following stakeholders: Business Manager, Client and Technical Manager. Iterations smaller than one week are sign of bad-planning, and should be addressed at the Project Management Office (PMO) meeting (see below).
+
+Iterations play a key role in the project execution, and should have the following lifecycle:
+
+|*Day*|*Milestone*|*Purpose*|
+|First iteration day (preferably Friday)| Iteration Planning | Plan the iteration and identify major issues to approach at the PMO meeting. The iteration planning procedure can be found at [[Iteration Planning Procedure]]|
+|Every Day | Stand-up Meeting |Identify work done on the previous day, plan the current day and identify blocking issues and corrective actions. The Stand-up Meeting Procedure can be found at [[Stand-up Meeting Procedure]]|
+|Every Monday|Project Management Office (PMO)  Meeting| Meet with Portfolio Managers / Managing Directors to highlight major issues, and come up with solutions.|
+|Every  Monday|Project Report| Deliver written report to client, business developer and other relevant stakeholders about the status of the project. Report should include: Achievements of previous iteration, plan for next iteration, major issues and solutions and effort delivered on last iteration. Reports are usually delivered by mail, and a template can be found at [[Project Weekly Reporting Procedure]]|
+|Last iteration day (preferably Thursday)| Iteration packaging | Package the iteration builds, and deliver to client / relevant stakeholders.|
+|First (next) iteration day (preferably Friday)| Feedback meeting | Meet with the client following the iteration packaging to get their feedback in a clear, structured way. On the meeting, plan the next iteration. |
+
+Notes on the schedule
+* A rule of thumb: if someone outside the project enters the project Roadmap separator, and can't correctly identify the date of the next delivery, the project is not correctly planned.
+* The "versions" assigned in any project should match the iterations and respective deadlines.
+* Some projects have an ICEBOX version, to store all issues that were identified but are not planned yet (i.e. they are placed in the ICEBOX for later).
+* This schedule was designed to match when other relevant meetings inside Imaginary Cloud take place.  Hence, the suggesting timings are important to follow.
+* Alongside with the schedule, the Project Manager should conduct periodic meetings with the client to re-plan the on-going iteration.
+* All projects vary, so the Project Manager should judge how best to time their meetings.
+
+h5. Troubleshooting
+
+There are possible scenarios and actions to take if things go off-track.
+
+| Category | *Problem* | *Possible solutions* |
+| Timing | Issues taking longer to deliver than expected | Do a toot cause analysis  with the team (e.g. drawing a "Fishbone Diagram":http://en.wikipedia.org/wiki/Ishikawa_diagram), highlight solutions for the problem and present to the client for decision. Do it in coordination with the Business Manager. Solutions might include de-scoping of issues, adding staff to the team, replace or dismiss a team member, re-design and re-implement a module in the application, among others.|
+| Client | Client decides to change scope | Re-plan the project, estimate the impact in cost and schedule and present the new plan to the client for approval. Do it in coordination with the Business Manager.|
+| Client | Client needs more support on other areas | Coordinate with the Business Manager what areas need to be addressed, design a plan and present to the client for approval. Plan might include reinforcement of the team with new competences, or outsourcing of tasks that are not core to Imaginary Cloud (e.g. market study, development of a promotional movie clip, etc).|
+
+h4. 3. Close Phase
+
+After successful delivery of the artefacts, or upon a project cancelation request by a relevant stakeholder, the project enters the *close phase*.
+
+On this phase, the following tasks need to be executed:
+
+# The Manager should schedule a [[Project Close Meeting]]
+# The Manager ask the client to fill a [[Satisfaction Survey Questionnaire]], if they have not recently responded to this.
+# A follow-up email to this meeting should be sent covering all that was discussed and thanking them for choosing to work with us.
+# We ensure the client is on our newsletter list.
+
+p>. "Top":#top
+
+h3(#quality_assurance). Quality assurance
+
+# We use "Continuous integration":https://en.wikipedia.org/wiki/Continuous_integration on all our projects.
+## All our code is developed under git repositories on "bitbucket.org":https://bitbucket.org and is managed using the "gitflow workflow":https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+## We use "semaphoreci.com":https://semaphoreci.com for automated testing
+## We use "www.codacy.com":https://www.codacy.com for code quality review.
+## And our pull requests are quality checked by the QA team.
+
+
+p>. "Top":#top
+
+
+h2(#project_setup). Project setup
+
+p>. "Top":#top
+
+h3(#git_respository). Create the project git repository
 
 # https://bitbucket.org/imaginarycloud/
 # Repositories -> Create repository
@@ -47,9 +130,9 @@ h2(#git_respository). Create the project git repository
 
 p>. "Top":#top
 
-h2(#local_git). Setup local git
+h3(#local_git). Setup local git
 
-h3. Setup local directory (Create directory for the project, Initialize a git repo and add a remote)
+h4. Setup local directory (Create directory for the project, Initialize a git repo and add a remote)
 
 # mkdir path/to/new/project
 # cd path/to/new/project
@@ -59,7 +142,7 @@ h3. Setup local directory (Create directory for the project, Initialize a git re
 
 p>. "Top":#top
 
-h2(#vagrant_ansible). Install, configure and test the virtual machine
+h3(#vagrant_ansible). Install, configure and test the virtual machine
 
 * We use "Vagrant":https://en.wikipedia.org/wiki/Vagrant_(software) to configure virtual development environments. It is used as a wrapper around "VirtualBox":https://www.virtualbox.org/ virtualization software.
 * "Ansible":https://en.wikipedia.org/wiki/Ansible_(software) is a software platform for configuring and managing computers. We use it together with Vagrant for configuration management.
@@ -79,7 +162,7 @@ h3. Install Ansible (mac)
 pre. $ brew install ansible
 
 
-h2. Look for configuration examples on the "vagrant_ansible_examples":/vagrant_ansible_examples folder
+h3. Look for configuration examples on the "vagrant_ansible_examples":/vagrant_ansible_examples folder
 
 To try the examples, just copy the files from the example you choose to your project git base folder and do:
 
@@ -119,7 +202,7 @@ Denpeding if it is a web project, a mobile project or both, several actions need
 
 Here is a list of the most relevant ones:
 
-h3. Web applications
+h4. Web applications
 
 For Web applications, the following list is important:
 
@@ -127,6 +210,33 @@ For Web applications, the following list is important:
 ** For search engines consider at least <a href="https://moz.com/learn/seo/meta-description" target="_blank">meta description</a> and <a href="https://moz.com/learn/seo/title-tag" target="_blank">title</a>
 ** For social networks consider at least og:title, og:url, og:description and og:image, as seen here <a href="https://developers.facebook.com/docs/sharing/best-practices" target="_blank">here</a>. The result can be tested <a href="https://developers.facebook.com/tools/debug/og/object/" target="_blank">here</a>, and the guidelines for og:image can be seen <a href="https://developers.facebook.com/docs/sharing/best-practices#images" target="_blank">here</a>.
 
-h3. Setup Exception Notification with Redmine
+h4. Setup Exception Notification with Redmine
+
+p>. "Top":#top
+
+h1(#track_time). How do we track time
+
+At Imaginary Cloud, time reporting is an important activity that every collaborator of must perform. It ensures that all effort is assigned to the correct activities. This is the base of all decision making affecting proposals, on-going projects and even the design of internal procedures.
+
+As Imaginary Intra is the official tool for Project Management on Imaginary Cloud, time must be reported in an issue open for the task at hand. This means that every collaborator *must never start working on a tasks* without having an issue open for it. This includes tasks specific to project, proposals or management (i.e. interviews, coaching, etc).
+
+Some projects require team members to report time on an external tool (e.g. Assembla, Pivotal Tracker, Excel, etc), with specific rules for that project. Nevertheless, the cost is calculated internally through Imaginary Intra. As a result, the team member must also report the time on this tool.
+
+Time spent on an issue includes understanding the issue, meetings clarifying scope, design of the technical solution, coding, testing, etc.
+
+Try to group project tasks to take chunks of half a day or a full day. At the end of day, 8h should be distributed among the issues worked during the day.
+
+Because projects have different billing cycles, *time should be reported at the end of the working day*.
+
+You must also book time spent on Holidays and Absences, in the same way as in project issues, in the "Holidays and Absences project":/projects/holidays-absences/wiki.
+
+h5. The following tools are proposed to track time during the day:
+
+* Linux
+** "Hamster":http://projecthamster.wordpress.com/
+* Web
+** "Online Stop Watch":http://www.online-stopwatch.com/
+* Mac
+** "On the job":http://stuntsoftware.com/onthejob/
 
 p>. "Top":#top
