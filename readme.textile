@@ -1,3 +1,31 @@
+
+h1. Time Tracking Procedure
+
+Time reporting is one of the most important activity that every collaborator of Imaginary Cloud must perform. It ensures that all costs are assigned to the correct activities. This is the base of all decision making affecting proposals, on-going projects and even the design of internal procedures.
+
+As Imaginary Intra is the official tool for Project Management on Imaginary Cloud, time must be reported in an issue open for the task at hand. This means that every collaborator *must never start working on a tasks* without having an issue open for it. This includes tasks specific to project, proposals or management (i.e. interviews, coaching, etc).
+
+Some projects require team members to report time on an external tool (e.g. Assembla, Pivotal Tracker, Excel, etc), with specific rules for that project. Nevertheless, the cost is calculated internally through Imaginary Intra. As a result, the team member must also report the time on this tool.
+
+Time spent on an issue includes understanding the issue, meetings clarifying scope, design of the technical solution, coding, testing, etc. 
+
+Try to group project tasks to take chunks of half a day or a full day. At the end of day, 8h should be distributed among the issues worked during the day.
+
+Because projects have different billing cycles, *time should be reported at the end of the working day*.
+
+You must also book time spent on Holidays and Absences, in the same way as in project issues, in the "Holidays and Absences project":/projects/holidays-absences/wiki.
+
+h4. The following tools are proposed to track time during the day:
+
+* Linux
+** "Hamster":http://projecthamster.wordpress.com/
+* Web
+** "Online Stop Watch":http://www.online-stopwatch.com/
+* Mac
+** "On the job":http://stuntsoftware.com/onthejob/
+
+
+
 h1(#top). Project setup
 
 All projects must have a git repository by codebase, continuous integration, automated code review, and use virtual machines for development.
