@@ -13,8 +13,9 @@ All projects must have a git repository by codebase, continuous integration, aut
 ## "Install, configure and test the virtual machine":#vagrant_ansible (Vagrant + Ansible)
 ## Configure continuous integration
 ## Configure automated code review
-## "How do we track time":#track_time
 ## "Go live":#go_live (WIP)
+## "How do we track time":#track_time
+
 
 h2(#how_it_works). How it works
 
