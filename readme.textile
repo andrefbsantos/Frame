@@ -1,4 +1,4 @@
-h1(#top). Imaginary Cloud Projects methodology
+h1(#top). ImaginaryCloud Projects methodology
 
 All projects must have a git repository by codebase, continuous integration, automated code review, and use virtual machines for development.
 
@@ -7,14 +7,14 @@ All projects must have a git repository by codebase, continuous integration, aut
 ## "Who's who":#whos_who
 ## "Project lifecycle":#project_lifecycle
 ## "Quality assurance":#quality_assurance
+## "How do we track time":#track_time
+## "Go live":#go_live (WIP)
 # "Project setup":#project_setup
 ## "Create the project git repository":#git_repository (Bitbucket)
 ## "Setup local git":#local_git
 ## "Install, configure and test the virtual machine":#vagrant_ansible (Vagrant + Ansible)
 ## Configure continuous integration
 ## Configure automated code review
-## "How do we track time":#track_time
-## "Go live":#go_live (WIP)
 
 h2(#how_it_works). How it works
 
@@ -80,7 +80,7 @@ Notes on the schedule
 * A rule of thumb: if someone outside the project enters the project Roadmap separator, and can't correctly identify the date of the next delivery, the project is not correctly planned.
 * The "versions" assigned in any project should match the iterations and respective deadlines.
 * Some projects have an ICEBOX version, to store all issues that were identified but are not planned yet (i.e. they are placed in the ICEBOX for later).
-* This schedule was designed to match when other relevant meetings inside Imaginary Cloud take place.  Hence, the suggesting timings are important to follow.
+* This schedule was designed to match when other relevant meetings inside ImaginaryCloud take place.  Hence, the suggesting timings are important to follow.
 * Alongside with the schedule, the Project Manager should conduct periodic meetings with the client to re-plan the on-going iteration.
 * All projects vary, so the Project Manager should judge how best to time their meetings.
 
@@ -91,7 +91,7 @@ There are possible scenarios and actions to take if things go off-track.
 | Category | *Problem* | *Possible solutions* |
 | Timing | Issues taking longer to deliver than expected | Do a toot cause analysis  with the team (e.g. drawing a "Fishbone Diagram":http://en.wikipedia.org/wiki/Ishikawa_diagram), highlight solutions for the problem and present to the client for decision. Do it in coordination with the Business Manager. Solutions might include de-scoping of issues, adding staff to the team, replace or dismiss a team member, re-design and re-implement a module in the application, among others.|
 | Client | Client decides to change scope | Re-plan the project, estimate the impact in cost and schedule and present the new plan to the client for approval. Do it in coordination with the Business Manager.|
-| Client | Client needs more support on other areas | Coordinate with the Business Manager what areas need to be addressed, design a plan and present to the client for approval. Plan might include reinforcement of the team with new competences, or outsourcing of tasks that are not core to Imaginary Cloud (e.g. market study, development of a promotional movie clip, etc).|
+| Client | Client needs more support on other areas | Coordinate with the Business Manager what areas need to be addressed, design a plan and present to the client for approval. Plan might include reinforcement of the team with new competences, or outsourcing of tasks that are not core to ImaginaryCloud (e.g. market study, development of a promotional movie clip, etc).|
 
 h4. 3. Close Phase
 
@@ -114,6 +114,54 @@ h3(#quality_assurance). Quality assurance
 ## We use "www.codacy.com":https://www.codacy.com for code quality review.
 ## And our pull requests are quality checked by the QA team.
 
+
+p>. "Top":#top
+
+h2(#go_live). Go Live
+
+*a paragraph about the importance of going live*
+
+Denpeding if it is a web project, a mobile project or both, several actions need to be taken into account before going live.
+
+Here is a list of the most relevant ones:
+
+h4. Web applications
+
+For Web applications, the following list is important:
+
+* Setup meta information
+** For search engines consider at least <a href="https://moz.com/learn/seo/meta-description" target="_blank">meta description</a> and <a href="https://moz.com/learn/seo/title-tag" target="_blank">title</a>
+** For social networks consider at least og:title, og:url, og:description and og:image, as seen here <a href="https://developers.facebook.com/docs/sharing/best-practices" target="_blank">here</a>. The result can be tested <a href="https://developers.facebook.com/tools/debug/og/object/" target="_blank">here</a>, and the guidelines for og:image can be seen <a href="https://developers.facebook.com/docs/sharing/best-practices#images" target="_blank">here</a>.
+
+h4. Setup Exception Notification with Redmine
+
+p>. "Top":#top
+
+h1(#track_time). How do we track time
+
+At ImaginaryCloud, time reporting is an important activity that every collaborator of must perform. It ensures that all effort is assigned to the correct activities. This is the base of all decision making affecting proposals, on-going projects and even the design of internal procedures.
+
+As Imaginary Intra is the official tool for Project Management on ImaginaryCloud, time must be reported in an issue open for the task at hand. This means that every collaborator *must never start working on a tasks* without having an issue open for it. This includes tasks specific to project, proposals or management (i.e. interviews, coaching, etc).
+
+Some projects require team members to report time on an external tool (e.g. Assembla, Pivotal Tracker, Excel, etc), with specific rules for that project. Nevertheless, the cost is calculated internally through Imaginary Intra. As a result, the team member must also report the time on this tool.
+
+Time spent on an issue includes understanding the issue, meetings clarifying scope, design of the technical solution, coding, testing, etc.
+
+Try to group project tasks to take chunks of half a day or a full day. At the end of day, 8h should be distributed among the issues worked during the day.
+To simplify procedures and account for context switching, *the minimum reporting time for each issue is half an hour*.
+
+Because projects have different billing cycles, *time should be reported at the end of the working day*.
+
+You must also book time spent on Holidays and Absences, in the same way as in project issues, in the "Holidays and Absences project":/projects/holidays-absences/wiki.
+
+h5. The following tools are proposed to track time during the day:
+
+* Linux
+** "Hamster":http://projecthamster.wordpress.com/
+* Web
+** "Online Stop Watch":http://www.online-stopwatch.com/
+* Mac
+** "On the job":http://stuntsoftware.com/onthejob/
 
 p>. "Top":#top
 
@@ -191,52 +239,5 @@ pre. $ vagrant halt
 
 pre. $ vagrant destroy
 
-
-p>. "Top":#top
-
-h2(#go_live). Go Live
-
-*a paragraph about the importance of going live*
-
-Denpeding if it is a web project, a mobile project or both, several actions need to be taken into account before going live.
-
-Here is a list of the most relevant ones:
-
-h4. Web applications
-
-For Web applications, the following list is important:
-
-* Setup meta information
-** For search engines consider at least <a href="https://moz.com/learn/seo/meta-description" target="_blank">meta description</a> and <a href="https://moz.com/learn/seo/title-tag" target="_blank">title</a>
-** For social networks consider at least og:title, og:url, og:description and og:image, as seen here <a href="https://developers.facebook.com/docs/sharing/best-practices" target="_blank">here</a>. The result can be tested <a href="https://developers.facebook.com/tools/debug/og/object/" target="_blank">here</a>, and the guidelines for og:image can be seen <a href="https://developers.facebook.com/docs/sharing/best-practices#images" target="_blank">here</a>.
-
-h4. Setup Exception Notification with Redmine
-
-p>. "Top":#top
-
-h1(#track_time). How do we track time
-
-At Imaginary Cloud, time reporting is an important activity that every collaborator of must perform. It ensures that all effort is assigned to the correct activities. This is the base of all decision making affecting proposals, on-going projects and even the design of internal procedures.
-
-As Imaginary Intra is the official tool for Project Management on Imaginary Cloud, time must be reported in an issue open for the task at hand. This means that every collaborator *must never start working on a tasks* without having an issue open for it. This includes tasks specific to project, proposals or management (i.e. interviews, coaching, etc).
-
-Some projects require team members to report time on an external tool (e.g. Assembla, Pivotal Tracker, Excel, etc), with specific rules for that project. Nevertheless, the cost is calculated internally through Imaginary Intra. As a result, the team member must also report the time on this tool.
-
-Time spent on an issue includes understanding the issue, meetings clarifying scope, design of the technical solution, coding, testing, etc.
-
-Try to group project tasks to take chunks of half a day or a full day. At the end of day, 8h should be distributed among the issues worked during the day.
-
-Because projects have different billing cycles, *time should be reported at the end of the working day*.
-
-You must also book time spent on Holidays and Absences, in the same way as in project issues, in the "Holidays and Absences project":/projects/holidays-absences/wiki.
-
-h5. The following tools are proposed to track time during the day:
-
-* Linux
-** "Hamster":http://projecthamster.wordpress.com/
-* Web
-** "Online Stop Watch":http://www.online-stopwatch.com/
-* Mac
-** "On the job":http://stuntsoftware.com/onthejob/
 
 p>. "Top":#top
