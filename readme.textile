@@ -170,7 +170,7 @@ h2(#project_setup). Project setup
 
 p>. "Top":#top
 
-h3(#git_respository). Create the project git repository
+h3(#git_repository). Create the project git repository
 
 # https://bitbucket.org/imaginarycloud/
 # Repositories -> Create repository
