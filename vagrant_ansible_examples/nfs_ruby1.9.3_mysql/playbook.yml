@@ -1,6 +1,7 @@
 ---
 - hosts: all
-  sudo: true
+  become: yes
+  become_method: sudo
   vars:
     document_root: /your_app_name
   pre_tasks:
