@@ -1,0 +1,25 @@
+{
+  "name": "sample-node",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "config": "^1.14.0",
+    "hiredis": "^0.4.0",
+    "ioredis": "^1.5.1",
+    "newrelic": "",
+    "private": "ddxtreme/node-solr",
+    "restify": "^3.0.2"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "hippie": "^0.4.0",
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "mocha test"
+  }
+}

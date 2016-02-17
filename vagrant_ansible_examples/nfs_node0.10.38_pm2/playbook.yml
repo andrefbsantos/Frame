@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  vars:
+    document_root: /vagrant
+  pre_tasks:
+    - name: update apt cache
+      apt: update_cache=yes
+  roles:
+    - base
+    - webserver

@@ -1,0 +1,53 @@
+{
+  "apps" : [{
+    "name"      : "Sample",
+    "script"    : "main.js",
+    "env_development" : {
+      "NODE_ENV": "development"
+    },
+    "env_staging" : {
+      "NODE_ENV": "staging"
+    },
+    "env_dev" : {
+      "NODE_ENV": "dev"
+    },
+    "env_production" : {
+      "NODE_ENV": "production"
+    },
+    "out_file"   : "logs/sample-node.log",
+    "error_file" : "logs/sample-node.err.log",
+    "log_date_format"  : "YYYY-MM-DD HH:mm Z"
+  }],
+  "deploy" : {
+    "staging" : {
+      "forward-agent": "yes",
+      "port" : "port",
+      "user" : "user",
+      "host" : "host",
+      "ref"  : "ref",
+      "repo" : "repo",
+      "path" : "path",
+      "post-deploy" : "nvm use 0.10 && npm install && pm2 startOrRestart ecosystem.json --env staging"
+    },
+    "dev" : {
+      "forward-agent": "yes",
+      "port" : "port",
+      "user" : "user",
+      "host" : "host",
+      "ref"  : "ref",
+      "repo" : "repo",
+      "path" : "path",
+      "post-deploy" : "nvm use 0.10 && npm install && pm2 startOrRestart ecosystem.json --env dev"
+    },
+    "production" : {
+      "forward-agent": "yes",
+      "port" : "port",
+      "user" : "user",
+      "host" : "host",
+      "ref"  : "ref",
+      "repo" : "repo",
+      "path" : "path",
+      "post-deploy" : "nvm use 0.10 && npm install && pm2 startOrRestart ecosystem.json --env production"
+    }
+  }
+}

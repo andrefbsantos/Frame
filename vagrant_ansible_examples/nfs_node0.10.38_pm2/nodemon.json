@@ -1,0 +1,4 @@
+{
+  "verbose": true,
+  "ignore": ["project_files/*"]
+}

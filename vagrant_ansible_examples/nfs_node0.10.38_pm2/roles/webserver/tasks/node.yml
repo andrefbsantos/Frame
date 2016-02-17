@@ -1,0 +1,41 @@
+---
+- name: Download Node.js
+  get_url:
+    url=https://nodejs.org/dist/v0.10.38/node-v0.10.38-linux-x64.tar.gz
+    dest=/opt/node-v0.10.38-linux-x64.tar.gz
+  register: download_node
+
+- name: Unpack Node.js
+  shell: mkdir -p /opt/node-v0.10.38-linux-x64 && tar xzf /opt/node-v0.10.38-linux-x64.tar.gz --strip 1 -C /opt/node-v0.10.38-linux-x64
+  when: download_node|changed
+  register: unpack_node
+
+- name: link node
+  file:
+    src=/opt/node-v0.10.38-linux-x64/bin/node
+    dest=/usr/bin/node
+    state=link
+  when: unpack_node|changed
+  register: link_node
+
+- name: link npm
+  file:
+    src=/opt/node-v0.10.38-linux-x64/bin/npm
+    dest=/usr/bin/npm
+    state=link
+  when: unpack_node|changed
+  register: link_npm
+
+- name: Install dependencies
+  become: yes
+  become_user: vagrant
+  # ignore_errors: yes
+  npm: path='{{ document_root }}'
+  when: link_npm|changed
+
+- name: Install pm2
+  become: yes
+  become_method: sudo
+  # ignore_errors: yes
+  npm: name=pm2 global=yes
+  when: link_npm|changed
